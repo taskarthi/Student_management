@@ -15,12 +15,13 @@ import com.example.student.model.StudentDto;
 import com.example.student.service.StudentService;
 
 @RestController
+@RequestMapping("api/v1")
 public class StudentController {
 
 	@Autowired
 	private StudentService studentsService;
 
-	@PostMapping("/api/v1/student")
+	@PostMapping("/student")
 	public ResponseEntity<StudentDto> registerStudentInfo(@RequestBody StudentDto student) {
 
 		try {
@@ -31,7 +32,7 @@ public class StudentController {
 
 	}
 
-	@PutMapping("/api/v1/student/updateStudent")
+	@PutMapping("/student/updateStudent")
 	public ResponseEntity<StudentDto> updateStudentInfo(@RequestParam Integer id, @RequestBody StudentDto student) {
 
 		try {
@@ -42,7 +43,7 @@ public class StudentController {
 
 	}
 
-	@PostMapping("/api/v1/student/getStudent")
+	@PostMapping("/student/getStudent")
 	public ResponseEntity<List<StudentDto>> getStudentDetailsByIdOrNameOrClass(@RequestBody StudentDto student) {
 		List<StudentDto> studentDetails = null;
 
